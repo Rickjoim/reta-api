@@ -3,11 +3,13 @@ package com.reta.model;
 
 import java.util.Objects;
 
-import javax.persistence.Column;
+//import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Oportunidade {
@@ -16,11 +18,14 @@ public class Oportunidade {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
-	@Column(nullable = false)
 	private String nome;
 	private int ch;
 	private String area;
 	private String descricao;
+	
+	@ManyToOne
+	@JoinColumn(nullable = false)
+	private Hospital userHospital;
 	
 	public static Oportunidade converter(Oportunidade o){
 		var oportunidadeVar = new Oportunidade();

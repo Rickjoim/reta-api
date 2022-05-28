@@ -1,11 +1,13 @@
 package com.reta.model;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
+//import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 
@@ -15,14 +17,18 @@ public class Colaborador {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
+	
 	private String nomeCompleto;
 	private String setor;
+	private String especialidade;
 	private String cargo;
 	private String email;
 	
-	private String senha;
+	@ManyToOne
+	@JoinColumn(nullable = false)
+	private Hospital userHospital;
 	
-	//List<Capacitacao> capacitacoes = new ArrayList<Capacitacao>();
+	ArrayList<Capacitacao> capacitacoes = new ArrayList<Capacitacao>();
 	ArrayList<String> interesses = new ArrayList<>();
 	
 	public static Colaborador converter(Colaborador c){
@@ -31,18 +37,26 @@ public class Colaborador {
 		colaboradorVar.setNomeCompleto(c.getNomeCompleto());
 		colaboradorVar.setCargo(c.getCargo());
 		colaboradorVar.setSetor(c.getSetor());
-		//colaboradorVar.setCapacitacoes(c.getCapacitacoes());
+		colaboradorVar.setCapacitacoes(c.getCapacitacoes());
 		colaboradorVar.setEmail(c.getEmail());
 		colaboradorVar.setInteresses(c.getInteresses());
 		return colaboradorVar;
 	}
 	
-	 ArrayList<String> getInteresses() {
-		return interesses;
+	public String getEspecialidade() {
+		return especialidade;
 	}
 
-	public void setInteresses(List<String> interesses) {
-		this.interesses = (ArrayList<String>) interesses;
+	public void setEspecialidade(String especialidade) {
+		this.especialidade = especialidade;
+	}
+
+	public void setInteresses(ArrayList<String> interesses) {
+		this.interesses = interesses;
+	}
+	
+	 ArrayList<String> getInteresses() {
+		return interesses;
 	}
 	
 	public String getEmail() {
@@ -52,22 +66,14 @@ public class Colaborador {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
-	public String getSenha() {
-		return senha;
+		
+	public ArrayList<Capacitacao> getCapacitacoes() {
+		return capacitacoes;
 	}
 
-	public void setSenha(String senha) {
-		this.senha = senha;
+	public void setCapacitacoes(ArrayList<Capacitacao> capacitacoes) {
+		this.capacitacoes = capacitacoes;
 	}
-	
-	//public List<Capacitacao> getCapacitacoes() {
-	//	return capacitacoes;
-	//}
-
-	//public void setCapacitacoes(List<Capacitacao> capacitacoes) {
-	//	this.capacitacoes = capacitacoes;
-	//}
 
 	public long getId() {
 		return id;

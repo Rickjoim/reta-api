@@ -2,9 +2,12 @@ package com.reta.model;
 
 import java.util.Objects;
 
-import javax.persistence.Column;
+
+//import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 
@@ -15,11 +18,13 @@ public class Capacitacao {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	
-	@Column(nullable = false)
 	private String nome;
 	private int ch;
 	private String descricao;
+	
+	@ManyToOne
+	@JoinColumn
+	private Colaborador colaborador;
 	
 	public static Capacitacao converter(Capacitacao c){
 		var capacitacaoVar = new Capacitacao();
