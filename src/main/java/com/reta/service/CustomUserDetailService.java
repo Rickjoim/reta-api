@@ -1,4 +1,4 @@
-package service;
+package com.reta.service;
 
 import java.util.List;
 import java.util.Optional;
@@ -30,7 +30,7 @@ public class CustomUserDetailService implements UserDetailsService{
 		UserReta userReta = Optional.ofNullable( userRepository.findByUsername(username))
 				.orElseThrow(() -> new UsernameNotFoundException("User not found"));
 		List<GrantedAuthority> authorityListAdmin = AuthorityUtils.createAuthorityList("ROLE_USER","ROLE_ADMIN");
-		List<GrantedAuthority> authorityListUser = AuthorityUtils.createAuthorityList("ROLE_USER","ROLE_ADMIN");
+		List<GrantedAuthority> authorityListUser = AuthorityUtils.createAuthorityList("ROLE_USER");
 		
 		return new org.springframework.security.core.userdetails.User(userReta.getUsername(), userReta.getPassword(), userReta.isAdmin() ? authorityListAdmin : authorityListUser);
 	}

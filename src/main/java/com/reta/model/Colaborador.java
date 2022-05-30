@@ -18,7 +18,6 @@ public class Colaborador {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
-	private String nomeCompleto;
 	private String setor;
 	private String especialidade;
 	private String cargo;
@@ -28,18 +27,17 @@ public class Colaborador {
 	@JoinColumn(nullable = false)
 	private Hospital userHospital;
 	
-	ArrayList<Capacitacao> capacitacoes = new ArrayList<Capacitacao>();
-	ArrayList<String> interesses = new ArrayList<>();
+	//ArrayList<Capacitacao> capacitacoes = new ArrayList<Capacitacao>();
+	//ArrayList<String> interesses = new ArrayList<>();
 	
 	public static Colaborador converter(Colaborador c){
 		var colaboradorVar = new Colaborador();
 		colaboradorVar.setId(c.getId());
-		colaboradorVar.setNomeCompleto(c.getNomeCompleto());
 		colaboradorVar.setCargo(c.getCargo());
 		colaboradorVar.setSetor(c.getSetor());
-		colaboradorVar.setCapacitacoes(c.getCapacitacoes());
+		//colaboradorVar.setCapacitacoes(c.getCapacitacoes());
 		colaboradorVar.setEmail(c.getEmail());
-		colaboradorVar.setInteresses(c.getInteresses());
+		//colaboradorVar.setInteresses(c.getInteresses());
 		return colaboradorVar;
 	}
 	
@@ -51,13 +49,13 @@ public class Colaborador {
 		this.especialidade = especialidade;
 	}
 
-	public void setInteresses(ArrayList<String> interesses) {
-		this.interesses = interesses;
-	}
+	// void setInteresses(ArrayList<String> interesses) {
+	//.interesses = interesses;
+	//}
 	
-	 ArrayList<String> getInteresses() {
-		return interesses;
-	}
+	//<String> getInteresses() {
+	// interesses;
+	//}
 	
 	public String getEmail() {
 		return email;
@@ -67,25 +65,19 @@ public class Colaborador {
 		this.email = email;
 	}
 		
-	public ArrayList<Capacitacao> getCapacitacoes() {
-		return capacitacoes;
-	}
+	//public ArrayList<Capacitacao> getCapacitacoes() {
+	//	return capacitacoes;
+	//}
 
-	public void setCapacitacoes(ArrayList<Capacitacao> capacitacoes) {
-		this.capacitacoes = capacitacoes;
-	}
+	//public void setCapacitacoes(ArrayList<Capacitacao> capacitacoes) {
+	//	this.capacitacoes = capacitacoes;
+	//}
 
 	public long getId() {
 		return id;
 	}
 	public void setId(long id) {
 		this.id = id;
-	}
-	public String getNomeCompleto() {
-		return nomeCompleto;
-	}
-	public void setNomeCompleto(String nomeCompleto) {
-		this.nomeCompleto = nomeCompleto;
 	}
 	public String getSetor() {
 		return setor;
