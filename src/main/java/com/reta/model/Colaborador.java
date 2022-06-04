@@ -17,7 +17,7 @@ public class Colaborador {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
-	
+	private String nome;
 	private String setor;
 	private String especialidade;
 	private String cargo;
@@ -33,6 +33,7 @@ public class Colaborador {
 	public static Colaborador converter(Colaborador c){
 		var colaboradorVar = new Colaborador();
 		colaboradorVar.setId(c.getId());
+		colaboradorVar.setNome(c.getNome());
 		colaboradorVar.setCargo(c.getCargo());
 		colaboradorVar.setSetor(c.getSetor());
 		//colaboradorVar.setCapacitacoes(c.getCapacitacoes());
@@ -41,6 +42,14 @@ public class Colaborador {
 		return colaboradorVar;
 	}
 	
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
 	public String getEspecialidade() {
 		return especialidade;
 	}

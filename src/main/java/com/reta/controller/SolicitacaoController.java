@@ -4,6 +4,7 @@ import java.util.List;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 //import org.springframework.http.ResponseEntity;
 //import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -13,6 +14,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 //import org.springframework.web.bind.annotation.RequestParam;
 //import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -45,14 +48,14 @@ public class SolicitacaoController {
 		return Solicitacao.converter(solicitacaoVar); 
 	}
 	
-	/*
+	///*
 	@GetMapping(value = "/buscarPorNome") //Busca por Nome ou partes
 	@ResponseBody
-	public ResponseEntity<List<Oportunidade>> buscarPorNome(@RequestParam(required=false,name="nome") String nome){
-		List<Oportunidade> oportunidade = oportunidadeRepository.buscarPorNome(nome.trim());
-		return new  ResponseEntity<List<Oportunidade>>(oportunidade, HttpStatus.OK); 
+	public ResponseEntity<List<Solicitacao>> buscarPorNome(@RequestParam(required=false,name="nome") String nome){
+		List<Solicitacao> solicitacao = solicitacaoRepository.buscarPorNome(nome.trim());
+		return new  ResponseEntity<List<Solicitacao>>(solicitacao, HttpStatus.OK); 
 	}
-	*/
+	//*/
 	
 	@PostMapping
 	public Solicitacao adicionar(@RequestBody Solicitacao solicitacao) {
