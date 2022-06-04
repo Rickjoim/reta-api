@@ -4,7 +4,6 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
-//import org.springframework.http.HttpStatus;
 //import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -44,13 +43,14 @@ public class ColaboradorController {
 		return Colaborador.converter(colaboradorVar); 
 	}
 	
-	//@GetMapping(value = "/buscarPorNome") //Busca por nome ou partes
-	//@ResponseBody
-	//public ResponseEntity<List<Colaborador>> buscarPorNome(@RequestParam(required=false,name="nome") String nome){
-	//	List<Colaborador> colaborador = colaboradorRepository.buscarPorNome(nome.trim());
-	//	return new  ResponseEntity<List<Colaborador>>(colaborador, HttpStatus.OK); 
-	//}
-	
+	/*
+	@GetMapping(value = "/buscarPorNome") //Busca por nome ou partes
+	@ResponseBody
+	public ResponseEntity<List<Colaborador>> buscarPorNome(@RequestParam(required=false,name="nome") String nome){
+		List<Colaborador> colaborador = colaboradorRepository.buscarPorNome(nome.trim());
+		return new  ResponseEntity<List<Colaborador>>(colaborador, HttpStatus.OK); 
+	}
+	*/
 	@PostMapping
 	public Colaborador adicionar(@RequestBody Colaborador colaborador) {
 		return colaboradorRepository.save(colaborador);
