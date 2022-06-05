@@ -17,9 +17,10 @@ public class Solicitacao {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	
-	private String nome;
-	private String area;
-	private String descricao;
+	private String tema;
+	private String tipo;
+	private String publicoAlvo;
+	private String justificativa;
 	
 	@ManyToOne
 	@JoinColumn(nullable = false)
@@ -32,14 +33,48 @@ public class Solicitacao {
 	public static Solicitacao converter(Solicitacao s){
 		var solicitacaoVar = new Solicitacao();
 		solicitacaoVar.setId(s.getId());
-		solicitacaoVar.setNome(s.getNome());
-		solicitacaoVar.setDescricao(s.getDescricao());
+		solicitacaoVar.setTema(s.getTema());
+		solicitacaoVar.setTipo(s.getTipo());
+		solicitacaoVar.setPublicoAlvo(s.getPublicoAlvo());
+		solicitacaoVar.setJustificativa(s.getJustificativa());
 		return solicitacaoVar;
 	}
 	
 	@Override
 	public int hashCode() {
 		return Objects.hash(id);
+	}
+
+	public String getTema() {
+		return tema;
+	}
+
+	public void setTema(String tema) {
+		this.tema = tema;
+	}
+
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+
+	public String getPublicoAlvo() {
+		return publicoAlvo;
+	}
+
+	public void setPublicoAlvo(String publicoAlvo) {
+		this.publicoAlvo = publicoAlvo;
+	}
+
+	public String getJustificativa() {
+		return justificativa;
+	}
+
+	public void setJustificativa(String justificativa) {
+		this.justificativa = justificativa;
 	}
 
 	@Override
@@ -60,30 +95,6 @@ public class Solicitacao {
 
 	public void setId(long id) {
 		this.id = id;
-	}
-
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
-	public String getArea() {
-		return area;
-	}
-
-	public void setArea(String area) {
-		this.area = area;
-	}
-
-	public String getDescricao() {
-		return descricao;
-	}
-
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
 	}
 
 	public Hospital getUserHospital() {
