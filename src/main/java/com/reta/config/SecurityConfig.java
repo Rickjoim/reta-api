@@ -8,6 +8,8 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 //import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 //import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.crypto.factory.PasswordEncoderFactories;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import com.reta.service.CustomUserDetailService;
 
@@ -32,7 +34,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.userDetailsService(customUserDetailService);
 	}
-	/*
+	
 	@Autowired
 	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
 	 PasswordEncoder encoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
@@ -41,6 +43,5 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	  .and()
 	  .withUser("admin").password(encoder.encode("senha")).roles("USER", "ADMIN");
 	}
-	*/
 	
 }

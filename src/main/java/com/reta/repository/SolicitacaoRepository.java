@@ -10,6 +10,6 @@ import com.reta.model.Solicitacao;
 
 @Repository
 public interface SolicitacaoRepository extends JpaRepository<Solicitacao, Long>{
-	@Query(value = "select s from Solicitacao s where trim(s.nome) like %?1%")
-	List<Solicitacao> buscarPorNome(String nome);
+	@Query(value = "select s from Solicitacao s where trim(s.tema) like %?1%")
+	List<Solicitacao> buscarPorTema(String tema);
 }

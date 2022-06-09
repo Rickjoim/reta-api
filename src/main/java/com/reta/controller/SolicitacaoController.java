@@ -49,10 +49,10 @@ public class SolicitacaoController {
 	}
 	
 	///*
-	@GetMapping(value = "/buscarPorNome") //Busca por Nome ou partes
+	@GetMapping(value = "/buscarPorTema") //Busca por Tema ou partes
 	@ResponseBody
-	public ResponseEntity<List<Solicitacao>> buscarPorNome(@RequestParam(required=false,name="nome") String nome){
-		List<Solicitacao> solicitacao = solicitacaoRepository.buscarPorNome(nome.trim());
+	public ResponseEntity<List<Solicitacao>> buscarPorTema(@RequestParam(required=false,name="tema") String tema){
+		List<Solicitacao> solicitacao = solicitacaoRepository.buscarPorTema(tema.trim());
 		return new  ResponseEntity<List<Solicitacao>>(solicitacao, HttpStatus.OK); 
 	}
 	//*/
