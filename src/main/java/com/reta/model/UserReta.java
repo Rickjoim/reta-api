@@ -9,7 +9,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class UserReta extends Colaborador{
 	
 	
-	@Column(nullable = false, unique = true)
+	@Column(nullable = false)
 	private String username;
 	@Column(nullable = false)
 	@JsonIgnore

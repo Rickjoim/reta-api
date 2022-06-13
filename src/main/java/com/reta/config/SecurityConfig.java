@@ -16,7 +16,6 @@ import com.reta.service.CustomUserDetailService;
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled =  true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter{
-	
 	@Autowired
 	private CustomUserDetailService customUserDetailService;
 	
@@ -34,6 +33,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.userDetailsService(customUserDetailService);
 	}
+	/*
 	
 	@Autowired
 	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
@@ -43,5 +43,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	  .and()
 	  .withUser("admin").password(encoder.encode("senha")).roles("USER", "ADMIN");
 	}
+	*/
 	
 }
