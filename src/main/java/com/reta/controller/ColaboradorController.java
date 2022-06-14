@@ -51,7 +51,7 @@ public class ColaboradorController {
 		return new  ResponseEntity<List<Colaborador>>(colaborador, HttpStatus.OK); 
 	}
 	
-	@PostMapping
+	@PostMapping("/cadastrar")
 	public Colaborador adicionar(@RequestBody Colaborador colaborador) {
 		return colaboradorRepository.save(colaborador);
 	} 

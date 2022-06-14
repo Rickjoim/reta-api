@@ -32,6 +32,6 @@ public class CustomUserDetailService implements UserDetailsService{
 		List<GrantedAuthority> authorityListAdmin = AuthorityUtils.createAuthorityList("ROLE_USER","ROLE_ADMIN");
 		List<GrantedAuthority> authorityListUser = AuthorityUtils.createAuthorityList("ROLE_USER");
 		
-		return new org.springframework.security.core.userdetails.User(userReta.getUsername(), userReta.getPassword(), userReta.isAdmin() ? authorityListAdmin : authorityListUser);
+		return new org.springframework.security.core.userdetails.User(userReta.getUsername(), userReta.getPassword(), userReta.isTipo() == '1' ? authorityListAdmin : authorityListUser);
 	}
 }

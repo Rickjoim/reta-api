@@ -44,7 +44,7 @@ public class HospitalController {
 	}
 	
 	@PostMapping
-	@PreAuthorize("hasRole('ADMIN')")
+	//@PreAuthorize("hasRole('ADMIN')")
 	public Hospital adicionar(@RequestBody Hospital Hospital) {
 		return hospitalRepository.save(Hospital);
 	}

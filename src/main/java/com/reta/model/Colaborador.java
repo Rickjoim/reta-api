@@ -24,11 +24,11 @@ public class Colaborador {
 	private String email;
 	
 	@ManyToOne
-	@JoinColumn(nullable = false)
+	@JoinColumn
 	private Hospital userHospital;
 	
 	//ArrayList<Capacitacao> capacitacoes = new ArrayList<Capacitacao>();
-	ArrayList<String> interesses = new ArrayList<>();
+	//ArrayList<String> interesses = new ArrayList<>();
 	
 	public static Colaborador converter(Colaborador c){
 		var colaboradorVar = new Colaborador();
@@ -38,7 +38,6 @@ public class Colaborador {
 		colaboradorVar.setSetor(c.getSetor());
 		//colaboradorVar.setCapacitacoes(c.getCapacitacoes());
 		colaboradorVar.setEmail(c.getEmail());
-		colaboradorVar.setInteresses(c.getInteresses());
 		return colaboradorVar;
 	}
 	
@@ -58,13 +57,13 @@ public class Colaborador {
 		this.especialidade = especialidade;
 	}
 
-	 void setInteresses(ArrayList<String> interesses) {
-		 this.interesses = interesses;
-	}
+	//void setInteresses(ArrayList<String> interesses) {
+	//	 this.interesses = interesses;
+	//}
 	
-	public ArrayList<String> getInteresses() {
-		return interesses;
-	}
+	//public ArrayList<String> getInteresses() {
+	//	return interesses;
+	//}
 	
 	public String getEmail() {
 		return email;
