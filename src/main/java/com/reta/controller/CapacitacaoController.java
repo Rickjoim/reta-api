@@ -23,48 +23,47 @@ import com.reta.repository.CapacitacaoRepository;
 @RestController
 @RequestMapping("/capacitacao")
 public class CapacitacaoController {
-	
+
 	@Autowired
 	private CapacitacaoRepository capacitacaoRepository;
-	
+
 	public CapacitacaoController(CapacitacaoRepository capacitacaoRepository){
 		this.capacitacaoRepository = capacitacaoRepository;
 	}
-	
+
 	@GetMapping("/")
 	public List<Capacitacao> listar() {
 		return capacitacaoRepository.findAll();
 	}
-	
+
 	@GetMapping("/{id}")
 	public Capacitacao findById(@PathVariable("id") Long id){
 		var capacitacaoVar = capacitacaoRepository.getById(id);
-		return Capacitacao.converter(capacitacaoVar); 
+		return Capacitacao.converter(capacitacaoVar);
 	}
-	
+
 	@GetMapping(value = "/buscarPorNome") //Busca por nome ou partes
 	@ResponseBody
 	public ResponseEntity<List<Capacitacao>> buscarPorNome(@RequestParam(required=false,name="nome") String nome){
 		List<Capacitacao> capacitacao = capacitacaoRepository.buscarPorNome(nome.trim());
-		return new  ResponseEntity<List<Capacitacao>>(capacitacao, HttpStatus.OK); 
+		return new  ResponseEntity<List<Capacitacao>>(capacitacao, HttpStatus.OK);
 	}
-	
+
 	@PostMapping
 	public Capacitacao adicionar(@RequestBody Capacitacao capacitacao) {
 		return capacitacaoRepository.save(capacitacao);
 	}
-	
+
 	@PutMapping("/{id}")
 	public Capacitacao atualizar(@PathVariable Long id, @RequestBody Capacitacao capacitacao){
 		Capacitacao capacitacaoAtual = capacitacaoRepository.findById(id).get();
 		BeanUtils.copyProperties(capacitacao, capacitacaoAtual, "id");
-		return capacitacaoRepository.save(capacitacaoAtual); 
+		return capacitacaoRepository.save(capacitacaoAtual);
 	}
-	
+
 	@DeleteMapping("/{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void exluir(@PathVariable Long id) {
 		capacitacaoRepository.deleteById(id);
 	}
-	
 }
