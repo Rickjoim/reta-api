@@ -31,13 +31,13 @@ public class HospitalController {
 	}
 	
 	@GetMapping("/")
-	@PreAuthorize("hasRole('ADMIN')")
+	//@PreAuthorize("hasRole('ADMIN')")
 	public List<Hospital> listar() {
 		return hospitalRepository.findAll();
 	}
 	
 	@GetMapping("/{id}")
-	@PreAuthorize("hasRole('ADMIN')")
+	//@PreAuthorize("hasRole('ADMIN')")
 	public Hospital findById(@PathVariable("id") Long id){
 		var HospitalVar = hospitalRepository.getById(id);
 		return Hospital.converter(HospitalVar); 
@@ -50,7 +50,7 @@ public class HospitalController {
 	}
 	
 	@PutMapping("/{id}")
-	@PreAuthorize("hasRole('ADMIN')")
+	//@PreAuthorize("hasRole('ADMIN')")
 	public Hospital atualizar(@PathVariable Long id, @RequestBody Hospital Hospital){
 		Hospital hospitalAtual = hospitalRepository.findById(id).get();
 		BeanUtils.copyProperties(Hospital, hospitalAtual, "id");
@@ -59,7 +59,7 @@ public class HospitalController {
 	
 	@DeleteMapping("/{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
-	@PreAuthorize("hasRole('ADMIN')")
+	//@PreAuthorize("hasRole('ADMIN')")
 	public void exluir(@PathVariable Long id) {
 		hospitalRepository.deleteById(id);
 	}

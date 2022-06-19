@@ -52,13 +52,13 @@ public class OportunidadeController {
 	}
 	
 	@PostMapping
-	@PreAuthorize("hasRole('ADMIN')")
+	//@PreAuthorize("hasRole('ADMIN')")
 	public Oportunidade adicionar(@RequestBody Oportunidade oportunidade) {
 		return oportunidadeRepository.save(oportunidade);
 	}
 	
 	@PutMapping("/{id}")
-	@PreAuthorize("hasRole('ADMIN')")
+	//@PreAuthorize("hasRole('ADMIN')")
 	public Oportunidade atualizar(@PathVariable Long id, @RequestBody Oportunidade oportunidade){
 		Oportunidade oportunidadeAtual = oportunidadeRepository.findById(id).get();
 		BeanUtils.copyProperties(oportunidade, oportunidadeAtual, "id");
@@ -67,7 +67,7 @@ public class OportunidadeController {
 	
 	@DeleteMapping("/{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
-	@PreAuthorize("hasRole('ADMIN')")
+	//@PreAuthorize("hasRole('ADMIN')")
 	public void exluir(@PathVariable Long id) {
 		oportunidadeRepository.deleteById(id);
 	}
