@@ -1,5 +1,6 @@
-package com.reta.config;
 
+package com.reta.config;
+/*
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
@@ -34,7 +35,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		auth.userDetailsService(customUserDetailService).passwordEncoder(new BCryptPasswordEncoder());
 	}
-	/*
+	
 	
 	@Autowired
 	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
@@ -44,6 +45,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	  .and()
 	  .withUser("admin").password(encoder.encode("senha")).roles("USER", "ADMIN");
 	}
-	*/
+	
 	
 }
+	*/
